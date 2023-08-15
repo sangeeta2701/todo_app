@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/main.dart';
 
+import '../widgets/addTodoDialog.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -44,8 +46,10 @@ class _HomePageState extends State<HomePage> {
           
          });
         },
+        backgroundColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
+          
         ),
         child: Icon(Icons.add),),
     );
