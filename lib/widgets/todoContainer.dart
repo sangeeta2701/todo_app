@@ -54,7 +54,15 @@ class TodoContainer extends StatelessWidget {
                 activeColor: Theme.of(context).primaryColor,
                 checkColor: Colors.white,
                 value: todo.isDone,
-                onChanged: (_) {}),
+                onChanged: (_) {
+                  final provider =
+                      Provider.of<TodosProvider>(context, listen: false);
+                  final isDone = provider.toggleTodoStatus(todo);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: isDone
+                          ? Text("Task Completed")
+                          : Text("Tak marked incomplet")));
+                }),
             Expanded(
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
